@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Canvas Glowup
 // @namespace    https://github.com/Decentblup/decentblups-canvas-reskin
-// @version      8.3
+// @version      8.4
 // @description  A cleaner, faster Canvas: course shortcuts, header tabs, floating rounded UI, light/dark/custom themes, Vim keys and more. Gear button in the sidebar opens settings.
 // @author       Decentblup
 // @homepageURL  https://github.com/Decentblup/decentblups-canvas-reskin
@@ -206,8 +206,12 @@
         background: ${bg} !important; color: ${fg} !important;
         border-color: transparent !important; text-shadow: none !important; box-shadow: none !important;
       }
+      /* text inside a highlighted button/tab (incl. links, e.g. jQuery UI tabs in course pages) must use the contrasting colour */
       html.cqs-monoLinks #wrapper :is(.btn-primary, .Button--primary, .btn.active, .Button.active, .btn-group .active,
-                                      .ui-state-active) :is(i, span) { color: inherit !important; }
+                                      .ui-state-active, .ui-tabs-active) :is(i, span, a, strong, em, b) {
+        color: ${fg} !important; text-decoration: none !important;
+      }
+      html.cqs-monoLinks #wrapper .ui-tabs-active { background: ${bg} !important; border-color: transparent !important; }
     `;
   };
 
