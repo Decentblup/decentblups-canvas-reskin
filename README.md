@@ -1,6 +1,6 @@
 # Decentblup's Canvas Glowup
 
-A userscript that gives UBC Canvas a cleaner, faster, rounder look, with keyboard control if you want it.
+A userscript that gives Canvas a cleaner, faster, rounder look, with keyboard control if you want it. It was built for UBC and works on other schools' Canvas too.
 
 - **Course shortcuts in the sidebar.** Every course is one click away. Pin your favourites to the top.
 - **Course tabs in a top bar.** Home, Modules, Assignments and the rest sit in a floating bar, with the course name on the left.
@@ -52,7 +52,9 @@ Tampermonkey opens an install page. Click **Install**.
 
 ### 4. Open Canvas
 
-Go to [canvas.ubc.ca](https://canvas.ubc.ca) and refresh. You should see your courses in the left bar and a ⚙️ **gear** near the bottom of it.
+Go to your school's Canvas (e.g. [canvas.ubc.ca](https://canvas.ubc.ca)) and refresh. You should see your courses in the left bar and a ⚙️ **gear** near the bottom of it.
+
+If nothing changes, your school may use its own Canvas address. See [Other schools](#other-schools) below.
 
 ### Updates
 
@@ -138,20 +140,27 @@ Press `?` to see the keys for things on screen, and press `?` again for the full
 
 ---
 
-## Using it at another school
+## Other schools
 
-The script only runs on `canvas.ubc.ca`. To use it with a different Canvas address:
+The script works on any Canvas site. Every school runs the same Canvas software, so nothing in it is UBC-specific. Out of the box it runs on:
 
-1. Open the script in the Tampermonkey dashboard.
-2. Find the line `// @match        https://canvas.ubc.ca/*`.
-3. Change it to your school's address, e.g. `// @match        https://canvas.yourschool.edu/*`, or add a second `@match` line.
-4. Save.
+- `canvas.ubc.ca`
+- any `*.instructure.com` address (e.g. `yourschool.instructure.com`), which is what many schools use
 
----
+If your school uses its own address (like `canvas.yourschool.edu` or `learn.yourschool.ca`), add it in Tampermonkey. This way it survives updates:
+
+1. Open the Tampermonkey dashboard and click **Canvas Glowup**.
+2. Go to the script's **Settings** tab.
+3. Under **Includes/Excludes**, find **User matches**, click **Add…**, and enter your address with `/*` on the end, e.g. `https://canvas.yourschool.edu/*`.
+4. Save and refresh Canvas.
+
+> You *can* instead add a `// @match` line to the script itself, but it's lost whenever a new version installs. The Settings tab keeps it.
+
+Course tiles in the sidebar show course numbers when codes look like `CPSC 221`. Other formats show initials instead. Schools that heavily customize Canvas may look a bit off in places. [Open an issue](https://github.com/Decentblup/decentblups-canvas-reskin/issues) with a screenshot if something breaks.
 
 ## Troubleshooting
 
-- **Nothing changes on Canvas.** Check that **Allow User Scripts** (or Developer mode) is on (step 2). Also check that the script is enabled in the Tampermonkey dashboard, then refresh Canvas.
+- **Nothing changes on Canvas.** Check that **Allow User Scripts** (or Developer mode) is on (step 2). Also check that the script is enabled in the Tampermonkey dashboard. If your school's Canvas isn't at `canvas.ubc.ca` or `*.instructure.com`, add its address (see [Other schools](#other-schools)). Then refresh Canvas.
 - **Pages look darkened twice or the colours are odd.** Turn off Dark Reader (or any other dark-mode extension) for Canvas and use this script's dark mode instead.
 - **Something looks broken on one page.** Open the gear menu and turn features off one at a time to find the culprit, or use the master switch to get plain Canvas back instantly. Then [open an issue](https://github.com/Decentblup/decentblups-canvas-reskin/issues) with a screenshot.
 - **The font didn't change.** Halyard Display is a paid Adobe font. If you have Creative Cloud, turn on "Halyard Display" at [fonts.adobe.com](https://fonts.adobe.com) and the script will use it. Otherwise it uses Instrument Sans, a similar free font.

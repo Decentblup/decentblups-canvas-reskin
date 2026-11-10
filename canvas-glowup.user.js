@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Canvas Glowup
 // @namespace    https://github.com/Decentblup/decentblups-canvas-reskin
-// @version      8.2
+// @version      8.3
 // @description  A cleaner, faster Canvas: course shortcuts, header tabs, floating rounded UI, light/dark/custom themes, Vim keys and more. Gear button in the sidebar opens settings.
 // @author       Decentblup
 // @homepageURL  https://github.com/Decentblup/decentblups-canvas-reskin
@@ -9,6 +9,7 @@
 // @updateURL    https://raw.githubusercontent.com/Decentblup/decentblups-canvas-reskin/main/canvas-glowup.user.js
 // @downloadURL  https://raw.githubusercontent.com/Decentblup/decentblups-canvas-reskin/main/canvas-glowup.user.js
 // @match        https://canvas.ubc.ca/*
+// @match        https://*.instructure.com/*
 // @run-at       document-start
 // @grant        none
 // ==/UserScript==
